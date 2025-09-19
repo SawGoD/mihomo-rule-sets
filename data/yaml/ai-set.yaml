@@ -1,0 +1,22 @@
+payload:
+
+  # Domains
+  - DOMAIN-KEYWORD,google
+  - DOMAIN-KEYWORD,amazon
+  - DOMAIN-KEYWORD,oaistatic
+  - DOMAIN-KEYWORD,chatgpt
+  - DOMAIN-KEYWORD,openai
+  - DOMAIN-KEYWORD,mongodb
+  - DOMAIN-KEYWORD,canva
+  - DOMAIN-KEYWORD,adaptive
+  - DOMAIN-KEYWORD,digitalocean
+  - DOMAIN-KEYWORD,cursor
+  - DOMAIN-KEYWORD,claude
+  - DOMAIN-KEYWORD,anthropic
+  - DOMAIN-KEYWORD,grok
+
+  # Processes
+  - PROCESS-NAME,ChatGPT.exe
+  - PROCESS-NAME,Cursor.exe
+  - PROCESS-NAME,claude.exe
+  
