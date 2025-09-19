@@ -1,0 +1,133 @@
+payload:
+
+  # Aimbeast (тренировочный шутер)
+  - PROCESS-NAME,Aimbeast.exe # Aimbeast launcher
+  - PROCESS-NAME,Aimbeast-Win64-Shipping.exe # Aimbeast itself
+
+  # Among Us
+  - PROCESS-NAME,Among Us.exe # Among Us
+
+  # Apex Legends
+  - PROCESS-NAME,ApexLauncher.exe # Apex Legends launcher
+  - PROCESS-NAME,r5apex_dx12.exe # Apex Legends (DX12)
+
+  # BattleBit Remastered
+  - PROCESS-NAME,BattleBit.exe # BattleBit Remastered
+
+  # Content Warning
+  - PROCESS-NAME,Content Warning.exe # Content Warning
+
+  # Euro Truck Simulator 2
+  - PROCESS-NAME,eurotrucks2.exe # Euro Truck Simulator 2
+
+  # Party Animals
+  - PROCESS-NAME,PartyAnimals.exe # Party Animals
+
+  # PEAK
+  - PROCESS-NAME,PEAK.exe # PEAK
+
+  # PUBG (PlayerUnknown's Battlegrounds)
+  - PROCESS-NAME,ExecPubg.exe # PUBG launcher
+  - PROCESS-NAME,TslGame.exe # PUBG main process
+  - PROCESS-NAME,TslGame_BE.exe # PUBG BattleEye
+  - PROCESS-NAME,TslGame_ZK.exe # PUBG Anti-Cheat module
+
+  # World of Warcraft
+  - PROCESS-NAME,Wow.exe # World of Warcraft
+
+  # REPO
+  - PROCESS-NAME,REPO.exe # REPO
+
+  # Minecraft (Java)
+  - PROCESS-NAME,javaw.exe # Minecraft (⚠️ зависит от версии Java)
+
+  # FragPunk
+  - PROCESS-NAME,FragPunk.exe # FragPunk
+
+  # Dead by Daylight
+  - PROCESS-NAME,DeadByDaylight-Win64-Shipping.exe # Dead by Daylight
+  - PROCESS-NAME,DeadByDaylight.exe # Dead by Daylight launcher
+
+  # Dota 2
+  - PROCESS-NAME,dota2.exe # Dota 2
+
+  # GTA V
+  - PROCESS-NAME,GTA5.exe # GTA V
+  # GTA V мультиплееры
+  - PROCESS-NAME,altv.exe # alt:V (Majestic RP)
+  - PROCESS-NAME,altv-webengine.exe # alt:V webengine (Majestic RP)
+  - PROCESS-NAME-REGEX,(?i).*ragemp.* # RageMP (альтернативный мультиплеер для GTA V)
+  - PROCESS-NAME-REGEX,(?i).*Majestic.* # Majestic RP
+
+  # Team Fortress 2
+  - PROCESS-NAME,tf.exe # Team Fortress 2 (x86)
+  - PROCESS-NAME,tf_win64.exe # Team Fortress 2 (x64)
+
+  # Half-Life 2
+  - PROCESS-NAME,hl2.exe # Half-Life 2
+
+  # Rainbow Six Siege
+  - PROCESS-NAME,RainbowSix.exe
+  - PROCESS-NAME,RainbowSix_Vulkan.exe
+  - PROCESS-NAME,RainbowSix_BE.exe
+  - PROCESS-NAME,UbisoftConnect.exe
+  - PROCESS-NAME,upc.exe
+  - AND,(NETWORK,UDP),(DST-PORT,6015)
+  - AND,(NETWORK,UDP),(DST-PORT,10000-10099)
+  - AND,(NETWORK,UDP),(DST-PORT,3074)
+  - AND,(NETWORK,TCP),(DST-PORT,13000)
+  - AND,(NETWORK,TCP),(DST-PORT,13005)
+  - AND,(NETWORK,TCP),(DST-PORT,13200)
+  - AND,(NETWORK,TCP),(DST-PORT,14000-14001)
+  - AND,(NETWORK,TCP),(DST-PORT,14008)
+  - AND,(NETWORK,TCP),(DST-PORT,14020-14024)
+  - DOMAIN-SUFFIX,rainbow6.com
+
+  # Counter-Strike 2
+  - PROCESS-NAME,cs2.exe
+  - AND,(NETWORK,UDP),(DST-PORT,27000-27100)
+  - AND,(NETWORK,UDP),(DST-PORT,4380)
+  - AND,(NETWORK,UDP),(DST-PORT,27031-27036)
+  - AND,(NETWORK,TCP),(DST-PORT,27015)
+  - AND,(NETWORK,TCP),(DST-PORT,27036)
+  - AND,(NETWORK,UDP),(DST-PORT,3478)
+
+  # Valorant
+  - PROCESS-NAME,VALORANT-Win64-Shipping.exe # Valorant
+
+  # Helldivers 2
+  - PROCESS-NAME,helldivers2.exe # Helldivers 2
+  - PROCESS-NAME,crs-handler.exe # crash reports Helldivers 2
+
+  # The FINALS
+  - PROCESS-NAME,Discovery.exe # The FINALS
+  
+  # Rust (не указан явно выше)
+  - PROCESS-NAME-REGEX,(?i).*RustClient.* # Rust
+
+  # Клиенты (группировка)
+  - PROCESS-NAME-REGEX,(?i).*Ubisoft.* # Ubisoft
+  - DOMAIN-SUFFIX,ubisoft.com
+  - DOMAIN-SUFFIX,ubi.com
+  - DOMAIN-SUFFIX,ubisoftconnect.com
+  - DOMAIN-SUFFIX,uplay.com
+  - PROCESS-NAME-REGEX,(?i).*Rockstar.* # Rockstar
+  - PROCESS-NAME-REGEX,(?i).*SocialClub.* # Rockstar Social Club
+  - PROCESS-NAME-REGEX,(?i).*Epic.* # Epic Games
+  - PROCESS-NAME-REGEX,(?i).*Steam.* # Steam
+  - PROCESS-NAME-REGEX,(?i).*Battle.net.* # Battle.net
+  - PROCESS-NAME-REGEX,(?i).*Origin.* # Origin
+  - PROCESS-NAME-REGEX,(?i).*EA.* # EA
+
+
+
+  # Античиты (группировка)
+  - PROCESS-NAME,start_protected_game.exe # Apex Easy Anti-Cheat
+  - PROCESS-NAME,BattleBitEAC.exe # BattleBit EAC
+  - PROCESS-NAME,BEService.exe # Rainbow Six Siege BattleEye
+  - PROCESS-NAME,BEService_x64.exe # Rainbow Six Siege BattleEye
+  - PROCESS-NAME,EasyAntiCheat.exe # Easy Anti-Cheat
+  - PROCESS-NAME,TslGame_BE.exe # PUBG BattleEye
+  - PROCESS-NAME,TslGame_ZK.exe # PUBG Anti-Cheat module
+  - PROCESS-NAME-REGEX,(?i).*Vanguard.* # Valorant Vanguard Anti-Cheat
+  - PROCESS-NAME,start_protected_game.exe # The FINALS anticheat start exe
