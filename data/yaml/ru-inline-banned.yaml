@@ -1,0 +1,27 @@
+payload:
+  - DOMAIN-SUFFIX,habr.com
+  - DOMAIN-SUFFIX,seasonvar.ru
+  - DOMAIN-SUFFIX,lib.social
+  - DOMAIN-SUFFIX,kemono.su
+  - DOMAIN-SUFFIX,jut.su
+  - DOMAIN-SUFFIX,kara.su
+  - DOMAIN-SUFFIX,theins.ru
+  - DOMAIN-SUFFIX,tvrain.ru
+  - DOMAIN-SUFFIX,echo.msk.ru
+  - DOMAIN-SUFFIX,the-village.ru
+  - DOMAIN-SUFFIX,snob.ru
+  - DOMAIN-SUFFIX,novayagazeta.ru
+  - DOMAIN-SUFFIX,moscowtimes.ru
+  - DOMAIN-SUFFIX,natribu.org
+  - DOMAIN-KEYWORD,animego
+  - DOMAIN-KEYWORD,yummyanime
+  - DOMAIN-KEYWORD,yummy-anime
+  - DOMAIN-KEYWORD,animeportal
+  - DOMAIN-KEYWORD,anime-portal
+  - DOMAIN-KEYWORD,animedub
+  - DOMAIN-KEYWORD,anidub
+  - DOMAIN-KEYWORD,animelib
+  - DOMAIN-KEYWORD,snapchat
+  - DOMAIN-KEYWORD,ikianime
+  - DOMAIN-KEYWORD,anilibria
+  - IP-CIDR,172.232.25.131/32 # ip for warframe chat
