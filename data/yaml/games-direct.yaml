@@ -33,7 +33,7 @@ payload:
   - PROCESS-NAME,TslGame_ZK.exe # PUBG Anti-Cheat module
 
   # World of Warcraft
-  - PROCESS-NAME,Wow.exe # World of Warcraft
+  # - PROCESS-NAME,Wow.exe # World of Warcraft
 
   # REPO
   - PROCESS-NAME,REPO.exe # REPO
@@ -115,7 +115,7 @@ payload:
   - PROCESS-NAME-REGEX,(?i).*SocialClub.* # Rockstar Social Club
   - PROCESS-NAME-REGEX,(?i).*Epic.* # Epic Games
   - PROCESS-NAME-REGEX,(?i).*Steam.* # Steam
-  - PROCESS-NAME-REGEX,(?i).*Battle.net.* # Battle.net
+  # - PROCESS-NAME-REGEX,(?i).*Battle.net.* # Battle.net
   - PROCESS-NAME-REGEX,(?i).*Origin.* # Origin
   - PROCESS-NAME-REGEX,(?i).*EA.* # EA
 
