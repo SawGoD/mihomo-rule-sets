@@ -37,7 +37,6 @@
 ### 🚫 ru-inline-banned.yaml
 Набор правил для заблокированных в России ресурсов:
 - Habr
-- Независимые СМИ (Новая газета, Эхо Москвы, TV Rain)
 - Аниме сайты
 - Snapchat
 - Другие заблокированные ресурсы
@@ -101,21 +100,6 @@ rules:
   
   # Остальной трафик
   - MATCH,PROXY
-```
-
-## Структура проекта
-
-```
-mihomo/
-├── data/
-│   └── yaml/
-│       ├── ai-set.yaml          # AI сервисы
-│       ├── games-direct.yaml    # Игры (DIRECT)
-│       ├── ru-inline.yaml       # Российские сервисы
-│       └── ru-inline-banned.yaml # Заблокированные ресурсы
-├── legiztempltest.yaml          # Тестовые шаблоны
-├── mytempltest.yaml
-└── test.yaml
 ```
 
 ## Обновление правил
