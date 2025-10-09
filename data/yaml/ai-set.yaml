@@ -15,9 +15,5 @@ payload:
   - DOMAIN-KEYWORD,anthropic
   - DOMAIN-KEYWORD,grok
 
-  # Processes
-  - PROCESS-NAME,MongoDBCompass.exe
-  - PROCESS-NAME,ChatGPT.exe
-  - PROCESS-NAME,Cursor.exe
-  - PROCESS-NAME,claude.exe
+
   
