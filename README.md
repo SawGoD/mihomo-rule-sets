@@ -1,10 +1,15 @@
-# Mihomo Rule Sets
+# Mihomo: правила и готовые конфиги
 
-Коллекция правил для ядра [mihomo](https://github.com/MetaCubeX/mihomo) (ранее Clash Meta).
+Коллекция не только rule sets, но и готовых примеров конфигураций для ядра [mihomo](https://github.com/MetaCubeX/mihomo) (ранее Clash Meta).
 
 ## Описание
 
 Этот репозиторий содержит наборы правил для настройки прокси-сервера mihomo. Правила организованы по категориям и предназначены для различных сценариев использования.
+
+> **Обратите внимание:**  
+> В репозитории уже есть готовый пример полной конфигурации — файл [`full_template.yaml`](./full_template.yaml).  
+> В нем подключены все rule-providers из этого репозитория, настроены группы прокси, DNS, sniffer, правила для игр, AI, российских сервисов, рекламы, торрентов и др.  
+> Просто скачайте этот файл, добавьте свои прокси и используйте как основу для своей конфигурации mihomo.
 
 ## Доступные наборы правил
 
@@ -47,29 +52,29 @@
 
 Добавьте rule-providers в ваш конфиг:
 
-```yaml
+```yaml  
+ai-set:
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ai-set.yaml
+    path: ./rule-sets/ai-set.yaml
+    interval: 43000
+
 rule-providers:
   games-direct:
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/games-direct.yaml
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/games-direct.yaml
     path: ./rule-sets/games-direct.yaml
-    interval: 86400
-
-  ai-set:
-    type: http
-    behavior: classical
-    format: yaml
-    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/ai-set.yaml
-    path: ./rule-sets/ai-set.yaml
-    interval: 86400
+    interval: 43200
 
   ru-inline:
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/ru-inline.yaml
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ru-inline.yaml
     path: ./rule-sets/ru-inline.yaml
     interval: 86400
 
@@ -77,7 +82,7 @@ rule-providers:
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/ru-inline-banned.yaml
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ru-inline-banned.yaml
     path: ./rule-sets/ru-inline-banned.yaml
     interval: 86400
 ```
@@ -86,11 +91,11 @@ rule-providers:
 
 ```yaml
 rules:
-  # Игры - прямое подключение
-  - RULE-SET,games-direct,DIRECT
-  
   # AI сервисы - через прокси
   - RULE-SET,ai-set,PROXY
+
+  # Игры - прямое подключение
+  - RULE-SET,games-direct,DIRECT
   
   # Российские сервисы - прямое подключение
   - RULE-SET,ru-inline,DIRECT
@@ -104,7 +109,7 @@ rules:
 
 ## Обновление правил
 
-Правила обновляются автоматически каждые 24 часа (86400 секунд). Вы можете изменить интервал обновления в параметре `interval`.
+Правила обновляются автоматически каждые 24/12 часов. Вы можете изменить интервал обновления в параметре `interval`.
 
 ## Вклад в проект
 
