@@ -1,0 +1,286 @@
+mixed-port: 7890
+allow-lan: true
+tcp-concurrent: true
+enable-process: true
+find-process-mode: always
+mode: rule
+log-level: info
+ipv6: false
+keep-alive-interval: 30
+unified-delay: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports:
+        - 80
+        - 8080-8880
+      override-destination: true
+    TLS:
+      ports:
+        - 443
+        - 8443
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+    - any:53
+  strict-route: true
+  mtu: 1500
+dns:
+  enable: true
+  prefer-h3: true
+  use-hosts: true
+  use-system-hosts: true
+  listen: 127.0.0.1:6868
+  ipv6: false
+  enhanced-mode: redir-host
+  default-nameserver:
+    - tls://77.88.8.8#DIRECT # Yandex DNS over TLS
+    - 195.208.4.1#DIRECT # НСДИ
+    - system
+  proxy-server-nameserver:
+    - tls://77.88.8.8#DIRECT # Yandex DNS over TLS
+    - 195.208.4.1#DIRECT # НСДИ
+    - system
+  direct-nameserver:
+    - tls://77.88.8.8#DIRECT # Yandex DNS over TLS
+    - 195.208.4.1#DIRECT # НСДИ
+    - system
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#🛡️ VPN
+    - https://cloudflare-dns.com/dns-query
+
+proxies: # LEAVE THIS LINE!
+
+proxy-groups:
+  - name: 🛡️ VPN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
+    type: select
+    include-all: false 
+    exclude-filter: '🇸🇪|🇩🇪|🇫🇮|🇱🇻|🇷🇺' 
+    proxies:
+      - 📶 First Available
+      - ⚡️ Fastest
+      - 🎲 Random
+      # LEAVE THIS LINE!
+
+  - name: 🟥 YouTube
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
+    type: select
+    include-all: false 
+    exclude-filter: '🇸🇪|🇫🇮|🇱🇻' 
+    remnawave: # Custom field used only in Remnawave (disables adding all proxies to this section, except manually specified)
+      include-proxies: true
+
+  - name: 🔵 Discord
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Discord.png
+    type: select
+    include-all: false 
+    exclude-filter: '🇩🇪|🇷🇺' 
+    proxies:
+      - ⚡️ Fastest
+      # LEAVE THIS LINE!
+
+  - name: ⚡️ Fastest
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
+    type: url-test
+    tolerance: 150
+    url: https://cp.cloudflare.com/generate_204
+    include-all: false 
+    exclude-filter: '🇷🇺|🇩🇪' 
+    hidden: true
+    interval: 300
+    proxies:
+      # LEAVE THIS LINE!
+  - name: 📶 First Available
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
+    type: fallback
+    url: https://cp.cloudflare.com/generate_204
+    hidden: true
+    interval: 300
+    proxies:
+      # LEAVE THIS LINE!
+  - name: 🎲 Random
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
+    type: select
+    include-all: false 
+    exclude-filter: '🇷🇺' 
+    hidden: true
+    remnawave: # Custom field used only in Remnawave
+        select-random-proxy: true # Adds one random user host to this group
+    proxies:
+        # LEAVE THIS LINE!
+
+rule-providers:
+  # MetaCubeX
+  discord_domains:  # Домены, связанные с Discord (основные сервисы, API, web-клиент, CDN и т.д.)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/discord.mrs
+    path: ./rule-sets/discord_domains.mrs
+  geosite-private:  # Домены для приватных/локальных сетей (например, .local, .lan, внутренние сервисы)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/private.mrs
+    path: ./geosite-private.mrs
+    interval: 86400
+  geosite-ru:  # Домены, относящиеся к России (национальные сервисы, сайты, государственные порталы и т.д.)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/category-ru.mrs
+    path: ./geosite-ru.mrs
+    interval: 86400
+  geoip-private:  # IP-диапазоны приватных/локальных сетей (например, 10.0.0.0/8, 192.168.0.0/16, внутренние адреса)
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/private.mrs
+    path: ./geoip-private.mrs
+    interval: 86400
+  geoip-ru:  # IP-диапазоны, принадлежащие России (выделенные российским провайдерам и организациям)
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/ru.mrs
+    path: ./geoip-ru.mrs
+    interval: 86400
+  python:  # Домены, связанные с Python (официальные сайты, PyPI, документация, сервисы экосистемы Python)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/python.mrs
+    path: ./rule-sets/python.mrs
+    interval: 86400
+  telegram_domains:  # Домены, используемые Telegram (web-клиент, API, CDN, сервисы для обхода блокировок)
+    type: http
+    behavior: domain
+    format: mrs
+    interval: 86400
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/telegram.mrs
+    path: ./rule-sets/telegram_domains.mrs
+  telegram_ips:  # IP-адреса серверов Telegram (основные и резервные, включая прокси и CDN)
+    type: http
+    behavior: ipcidr
+    format: mrs
+    interval: 86400
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geoip/telegram.mrs
+    path: ./rule-sets/telegram_ips.mrs
+  youtube:  # Домены, связанные с YouTube (основной сайт, API, видеохостинг, CDN, сервисы Google для YouTube)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/MetaCubeX/meta-rules-dat/raw/meta/geo/geosite/youtube.mrs
+    path: ./youtube.mrs
+    interval: 86400
+
+  # SawGoD
+  ai-set:  # Домены и процессы, связанные с искусственным интеллектом (OpenAI, Google AI, Anthropic, Claude, ChatGPT, и др.)
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/ai-set.yaml
+    path: ./rule-sets/ai-set.yaml
+    interval: 86400
+  games-direct:  # Список процессов и доменов популярных игр, требующих прямого соединения (Steam, Epic, Rockstar и др.)
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/games-direct.yaml
+    path: ./rule-sets/games-direct.yaml
+    interval: 86400
+  ru-inline:  # Российские домены для прямого доступа (медиа, сервисы, магазины, облака, госуслуги и др.)
+    type: http
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ru-inline.yaml
+    interval: 86400
+    behavior: classical
+    format: yaml
+    path: ./rule-sets/ru-inline.yaml
+  ru-inline-banned:  # Российские домены и сервисы, находящиеся под блокировкой или ограничением (аниме, СМИ, торренты и др.)
+    type: http
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ru-inline-banned.yaml
+    interval: 86400
+    behavior: classical
+    format: yaml
+    path: ./rule-sets/ru-inline-banned.yaml
+
+  # legiz-ru
+  discord_voiceips:  # IP-адреса голосовых серверов Discord (для правильной маршрутизации VoIP-трафика)
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/discord-voice-ip-list.mrs
+    path: ./rule-sets/discord_voiceips.mrs
+  oisd_big:  # Крупнейший список доменов для блокировки рекламы, трекеров и вредоносных сайтов (OISD)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/oisd/big.mrs
+    path: ./oisd/big.mrs
+  refilter_domains:  # Переработанный (очищенный) список доменных правил для фильтрации рекламы, трекеров и вредоносных сайтов
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/domain-rule.mrs
+    path: ./re-filter/domain-rule.mrs
+    interval: 86400
+  refilter_ipsum:  # Переработанный (очищенный) список IP-адресов для фильтрации рекламы, трекеров и вредоносных сайтов
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/re-filter/ip-rule.mrs
+    path: ./re-filter/ip-rule.mrs
+    interval: 86400
+  ru-app-list:  # Список российских приложений и их процессов (для прямого доступа или особой маршрутизации)
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/blob/main/other/ru-app-list.yaml
+    path: ./rule-sets/ru-app-list.yaml
+    interval: 86400
+  torrent-clients:  # Список процессов популярных торрент-клиентов (qBittorrent, uTorrent, Transmission и др.)
+    type: http
+    behavior: classical
+    format: yaml
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-clients.yaml
+    path: ./rule-sets/torrent-clients.yaml
+    interval: 86400
+  torrent-trackers:  # Домены торрент-трекеров (используются для поиска и скачивания торрентов)
+    type: http
+    behavior: domain
+    format: mrs
+    url: https://github.com/legiz-ru/mihomo-rule-sets/raw/main/other/torrent-trackers.mrs
+    path: ./rule-sets/torrent-trackers.mrs
+    interval: 86400
+
+rules:
+  - OR,((DOMAIN,ipwhois.app),(DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io)),🛡️ VPN # IP checker в VPN
+  - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT # Торренты
+  - RULE-SET,youtube,🟥 YouTube # YouTube
+  - RULE-SET,ai-set,📶 First Available
+  - OR,((RULE-SET,telegram_ips),(RULE-SET,telegram_domains)),🛡️ VPN # Telegram
+  - OR,((RULE-SET,discord_domains),(RULE-SET,discord_voiceips),(PROCESS-NAME,Discord.exe)),🔵 Discord # Discord
+  - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru)),DIRECT
+  - OR,((RULE-SET,geoip-private,no-resolve),(RULE-SET,geosite-private)),DIRECT
+  - RULE-SET,oisd_big,REJECT # Реклама/трекеры
+  # Региональные и re-filter
+  - RULE-SET,refilter_domains,📶 First Available
+  - RULE-SET,refilter_ipsum,📶 First Available
+  - RULE-SET,ru-inline-banned,📶 First Available
+  - RULE-SET,games-direct,DIRECT
+  - RULE-SET,ru-app-list,DIRECT
+  - RULE-SET,ru-inline,DIRECT
+  - RULE-SET,python,DIRECT
+
+  # Остальное
+  - MATCH,DIRECT
