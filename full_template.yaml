@@ -189,16 +189,16 @@ rule-providers:
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/ai-set.yaml
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ai-set.yaml
     path: ./rule-sets/ai-set.yaml
-    interval: 86400
+    interval: 43000
   games-direct:  # Список процессов и доменов популярных игр, требующих прямого соединения (Steam, Epic, Rockstar и др.)
     type: http
     behavior: classical
     format: yaml
-    url: https://github.com/SawGoD/mihomo-rule-sets/blob/main/data/yaml/games-direct.yaml
+    url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/games-direct.yaml
     path: ./rule-sets/games-direct.yaml
-    interval: 86400
+    interval: 43200
   ru-inline:  # Российские домены для прямого доступа (медиа, сервисы, магазины, облака, госуслуги и др.)
     type: http
     url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ru-inline.yaml
