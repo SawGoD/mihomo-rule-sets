@@ -6,9 +6,7 @@ payload:
   - DOMAIN-KEYWORD,oaistatic
   - DOMAIN-KEYWORD,chatgpt
   - DOMAIN-KEYWORD,openai
-  - DOMAIN-KEYWORD,mongodb
-  - DOMAIN-SUFFIX,mongodb.com
-  - DOMAIN-SUFFIX,mongodb.net
+  - DOMAIN-REGEX,mongodb
   - DOMAIN-KEYWORD,canva
   - DOMAIN-KEYWORD,adaptive
   - DOMAIN-KEYWORD,digitalocean
