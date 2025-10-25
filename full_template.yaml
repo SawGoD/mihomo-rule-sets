@@ -62,14 +62,14 @@ proxies: # LEAVE THIS LINE!
 
 proxy-groups:
   - name: 🛡️ VPN
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Hijacking.png
+    icon: https://i.ibb.co/rKSGn6z9/bdc7774d9e01.png
     type: select
     include-all: false 
     exclude-filter: '🇸🇪|🇩🇪|🇫🇮|🇱🇻|🇷🇺' 
     proxies:
       - 📶 First Available
-      - ⚡️ Fastest
-      - 🎲 Random
+      - 🚀 Fastest
+      # - 🎲 Random
       # LEAVE THIS LINE!
 
   - name: 🟥 YouTube
@@ -86,10 +86,20 @@ proxy-groups:
     include-all: false 
     exclude-filter: '🇩🇪|🇷🇺' 
     proxies:
-      - ⚡️ Fastest
+      - 🚀 Fastest
       # LEAVE THIS LINE!
 
-  - name: ⚡️ Fastest
+  - name: ✈️ Telegram
+    icon: https://i.ibb.co/1tLJwJM4/049be5471abf.png
+    type: select
+    include-all: false 
+    exclude-filter: 'NJ' 
+    proxies:
+      - 🛡️ VPN
+      - 🔓 NO VPN
+      # LEAVE THIS LINE!
+
+  - name: 🚀 Fastest
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Auto.png
     type: url-test
     tolerance: 150
@@ -104,20 +114,29 @@ proxy-groups:
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Download.png
     type: fallback
     url: https://cp.cloudflare.com/generate_204
+    include-all: false 
+    exclude-filter: '🇷🇺'
     hidden: true
     interval: 300
     proxies:
       # LEAVE THIS LINE!
-  - name: 🎲 Random
-    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
+  - name: 🔓 NO VPN
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Blackhole.png
     type: select
-    include-all: false 
-    exclude-filter: '🇷🇺' 
     hidden: true
-    remnawave: # Custom field used only in Remnawave
-        select-random-proxy: true # Adds one random user host to this group
     proxies:
-        # LEAVE THIS LINE!
+      - DIRECT
+      # LEAVE THIS LINE!
+  # - name: 🎲 Random
+  #   icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Round_Robin.png
+  #   type: select
+  #   include-all: false 
+  #   exclude-filter: '🇷🇺' 
+  #   hidden: true
+  #   remnawave: # Custom field used only in Remnawave
+  #       select-random-proxy: true # Adds one random user host to this group
+  #   proxies:
+  #       # LEAVE THIS LINE!
 
 rule-providers:
   # MetaCubeX
@@ -191,14 +210,14 @@ rule-providers:
     format: yaml
     url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ai-set.yaml
     path: ./rule-sets/ai-set.yaml
-    interval: 43000
+    interval: 86400
   games-direct:  # Список процессов и доменов популярных игр, требующих прямого соединения (Steam, Epic, Rockstar и др.)
     type: http
     behavior: classical
     format: yaml
     url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/games-direct.yaml
     path: ./rule-sets/games-direct.yaml
-    interval: 43200
+    interval: 86400
   ru-inline:  # Российские домены для прямого доступа (медиа, сервисы, магазины, облака, госуслуги и др.)
     type: http
     url: https://raw.githubusercontent.com/SawGoD/mihomo-rule-sets/refs/heads/main/data/yaml/ru-inline.yaml
@@ -267,16 +286,16 @@ rules:
   - OR,((DOMAIN,ipwhois.app),(DOMAIN,ipwho.is),(DOMAIN,api.ip.sb),(DOMAIN,ipapi.co),(DOMAIN,ipinfo.io)),🛡️ VPN # IP checker в VPN
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT # Торренты
   - RULE-SET,youtube,🟥 YouTube # YouTube
-  - RULE-SET,ai-set,📶 First Available
-  - OR,((RULE-SET,telegram_ips),(RULE-SET,telegram_domains)),🛡️ VPN # Telegram
+  - RULE-SET,ai-set,🛡️ VPN
+  - OR,((RULE-SET,telegram_ips),(RULE-SET,telegram_domains)),✈️ Telegram # Telegram
   - OR,((RULE-SET,discord_domains),(RULE-SET,discord_voiceips),(PROCESS-NAME,Discord.exe)),🔵 Discord # Discord
   - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru)),DIRECT
   - OR,((RULE-SET,geoip-private,no-resolve),(RULE-SET,geosite-private)),DIRECT
   - RULE-SET,oisd_big,REJECT # Реклама/трекеры
   # Региональные и re-filter
-  - RULE-SET,refilter_domains,📶 First Available
-  - RULE-SET,refilter_ipsum,📶 First Available
-  - RULE-SET,ru-inline-banned,📶 First Available
+  - RULE-SET,refilter_domains,🛡️ VPN
+  - RULE-SET,refilter_ipsum,🛡️ VPN
+  - RULE-SET,ru-inline-banned,🛡️ VPN
   - RULE-SET,games-direct,DIRECT
   - RULE-SET,ru-app-list,DIRECT
   - RULE-SET,ru-inline,DIRECT
