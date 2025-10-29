@@ -95,6 +95,9 @@ payload:
   # Valorant
   - PROCESS-NAME,VALORANT-Win64-Shipping.exe # Valorant
 
+  # BF6
+  - PROCESS-NAME,bf6.exe # Battlefield 6
+
   # Helldivers 2
   - PROCESS-NAME,helldivers2.exe # Helldivers 2
   - PROCESS-NAME,crs-handler.exe # crash reports Helldivers 2
