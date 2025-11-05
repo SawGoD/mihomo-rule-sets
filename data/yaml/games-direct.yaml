@@ -4,6 +4,12 @@ payload:
   - PROCESS-NAME,Aimbeast.exe # Aimbeast launcher
   - PROCESS-NAME,Aimbeast-Win64-Shipping.exe # Aimbeast itself
 
+  # Diablo IV
+  - PROCESS-NAME,Diablo IV.exe
+
+  # World of Warcraft
+  - PROCESS-NAME,Wow.exe
+
   # Among Us
   - PROCESS-NAME,Among Us.exe # Among Us
 
@@ -118,7 +124,8 @@ payload:
   - PROCESS-NAME-REGEX,(?i).*SocialClub.* # Rockstar Social Club
   - PROCESS-NAME-REGEX,(?i).*Epic.* # Epic Games
   - PROCESS-NAME-REGEX,(?i).*Steam.* # Steam
-  # - PROCESS-NAME-REGEX,(?i).*Battle.net.* # Battle.net
+  - PROCESS-NAME-REGEX,(?i).*Battle.net.* # Battle.net
+  - PROCESS-NAME,agent.exe
   - PROCESS-NAME-REGEX,(?i).*Origin.* # Origin
   - PROCESS-NAME-REGEX,(?i).*EA.* # EA
 
