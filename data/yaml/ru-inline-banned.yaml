@@ -13,6 +13,12 @@ payload:
   - DOMAIN-SUFFIX,novayagazeta.ru
   - DOMAIN-SUFFIX,moscowtimes.ru
   - DOMAIN-SUFFIX,natribu.org
+  - DOMAIN-SUFFIX,sc-cdn.net
+  - DOMAIN-SUFFIX,snap-dev.net
+  - DOMAIN-SUFFIX,snap.com
+  - DOMAIN-SUFFIX,snapchat.com
+  - DOMAIN-SUFFIX,snapkit.co
+  - DOMAIN-KEYWORD,snapchat
   - DOMAIN-KEYWORD,animego
   - DOMAIN-KEYWORD,yummyanime
   - DOMAIN-KEYWORD,yummy-anime
@@ -21,7 +27,6 @@ payload:
   - DOMAIN-KEYWORD,animedub
   - DOMAIN-KEYWORD,anidub
   - DOMAIN-KEYWORD,animelib
-  - DOMAIN-KEYWORD,snapchat
   - DOMAIN-KEYWORD,ikianime
   - DOMAIN-KEYWORD,anilibria
   - IP-CIDR,172.232.25.131/32 # ip for warframe chat
