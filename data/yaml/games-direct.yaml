@@ -114,6 +114,9 @@ payload:
   # Rust (не указан явно выше)
   - PROCESS-NAME-REGEX,(?i).*RustClient.* # Rust
 
+  # Tekken 
+  - PROCESS-NAME,Polaris-Win64-Shipping.exe # Tekken 8 Online
+
   # Клиенты (группировка)
   - PROCESS-NAME-REGEX,(?i).*Ubisoft.* # Ubisoft
   - DOMAIN-SUFFIX,ubisoft.com
