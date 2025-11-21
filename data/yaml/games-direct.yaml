@@ -39,7 +39,10 @@ payload:
   - PROCESS-NAME,TslGame_ZK.exe # PUBG Anti-Cheat module
 
   # World of Warcraft
-  # - PROCESS-NAME,Wow.exe # World of Warcraft
+  - PROCESS-NAME,Wow.exe # World of Warcraft
+
+  # Farming Simulator 25
+  - PROCESS-name,FarmingSimulator2025Game.exe
 
   # REPO
   - PROCESS-NAME,REPO.exe # REPO
@@ -129,7 +132,7 @@ payload:
   - PROCESS-NAME-REGEX,(?i).*Steam.* # Steam
   - PROCESS-NAME-REGEX,(?i).*Battle.net.* # Battle.net
   - PROCESS-NAME,agent.exe
-  - PROCESS-NAME-REGEX,(?i).*Origin.* # Origin
+  - PROCESS-NAME-REGEX,(?i).*Origin.* # Origin  
   - PROCESS-NAME-REGEX,(?i).*EA.* # EA
 
 
