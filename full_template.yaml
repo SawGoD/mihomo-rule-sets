@@ -62,7 +62,7 @@ proxies: # LEAVE THIS LINE!
 
 proxy-groups:
   - name: 🛡️ VPN
-    icon: https://i.ibb.co/rKSGn6z9/bdc7774d9e01.png
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Area.png
     type: select
     include-all: false 
     exclude-filter: '🇸🇪|🇩🇪|🇫🇮|🇱🇻|🇷🇺' 
@@ -76,7 +76,7 @@ proxy-groups:
     icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/YouTube.png
     type: select
     include-all: false 
-    exclude-filter: '🇸🇪|🇫🇮|🇱🇻' 
+    exclude-filter: '🇸🇪|🇱🇻' 
     remnawave: # Custom field used only in Remnawave (disables adding all proxies to this section, except manually specified)
       include-proxies: true
 
@@ -89,8 +89,17 @@ proxy-groups:
       - 🚀 Fastest
       # LEAVE THIS LINE!
 
-  - name: ✈️ Telegram
-    icon: https://i.ibb.co/1tLJwJM4/049be5471abf.png
+  - name: 🎮 Games
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Game.png
+    type: select
+    include-all: false 
+    exclude-filter: '🇩🇪' 
+    proxies:
+      - 🔓 NO VPN
+      # LEAVE THIS LINE!
+
+  - name: ➤ Telegram
+    icon: https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png
     type: select
     include-all: false 
     exclude-filter: 'NJ' 
@@ -287,19 +296,19 @@ rules:
   - OR,((RULE-SET,torrent-clients),(RULE-SET,torrent-trackers)),DIRECT # Торренты
   - RULE-SET,youtube,🟥 YouTube # YouTube
   - RULE-SET,ai-set,🛡️ VPN
-  - OR,((RULE-SET,telegram_ips),(RULE-SET,telegram_domains)),✈️ Telegram # Telegram
+  - OR,((RULE-SET,telegram_ips),(RULE-SET,telegram_domains)),➤ Telegram # Telegram
   - OR,((RULE-SET,discord_domains),(RULE-SET,discord_voiceips),(PROCESS-NAME,Discord.exe)),🔵 Discord # Discord
   - OR,((RULE-SET,geosite-ru),(RULE-SET,geoip-ru)),DIRECT
   - OR,((RULE-SET,geoip-private,no-resolve),(RULE-SET,geosite-private)),DIRECT
-  - RULE-SET,oisd_big,REJECT # Реклама/трекеры
+  # - RULE-SET,oisd_big,REJECT # Реклама/трекеры
   # Региональные и re-filter
   - RULE-SET,refilter_domains,🛡️ VPN
   - RULE-SET,refilter_ipsum,🛡️ VPN
   - RULE-SET,ru-inline-banned,🛡️ VPN
-  - RULE-SET,games-direct,DIRECT
+  - RULE-SET,games-direct,🎮 Games
   - RULE-SET,ru-app-list,DIRECT
   - RULE-SET,ru-inline,DIRECT
   - RULE-SET,python,DIRECT
 
   # Остальное
-  - MATCH,DIRECT
+  - MATCH,🛡️ VPN
