@@ -2,6 +2,7 @@ payload:
 
   # Domains
   - DOMAIN-KEYWORD,google
+  - DOMAIN-KEYWORD,gemini
   - DOMAIN-KEYWORD,amazon
   - DOMAIN-KEYWORD,oaistatic
   - DOMAIN-KEYWORD,chatgpt
