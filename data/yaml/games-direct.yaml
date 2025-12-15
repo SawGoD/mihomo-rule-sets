@@ -47,6 +47,9 @@ payload:
   # REPO
   - PROCESS-NAME,REPO.exe # REPO
 
+  # Wargame: Red Dragon
+  - PROCESS-NAME,WarGame3.exe # Wargame: Red Dragon
+
   # Minecraft (Java)
   - PROCESS-NAME,javaw.exe # Minecraft (⚠️ зависит от версии Java)
 
@@ -126,6 +129,7 @@ payload:
   - DOMAIN-SUFFIX,ubi.com
   - DOMAIN-SUFFIX,ubisoftconnect.com
   - DOMAIN-SUFFIX,uplay.com
+  - DOMAIN-SUFFIX,epicgames.com # Epic Games
   - PROCESS-NAME-REGEX,(?i).*Rockstar.* # Rockstar
   - PROCESS-NAME-REGEX,(?i).*SocialClub.* # Rockstar Social Club
   - PROCESS-NAME-REGEX,(?i).*Epic.* # Epic Games
