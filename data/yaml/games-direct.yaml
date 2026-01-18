@@ -47,6 +47,9 @@ payload:
   # REPO
   - PROCESS-NAME,REPO.exe # REPO
 
+  # Warhammer 40,000: Space Marine 2
+  - PROCESS-NAME,Warhammer 40000 Space Marine 2 - Retail.exe # Warhammer 40,000: Space Marine 2
+
   # Wargame: Red Dragon
   - PROCESS-NAME,WarGame3.exe # Wargame: Red Dragon
 
@@ -130,6 +133,8 @@ payload:
   - DOMAIN-SUFFIX,ubisoftconnect.com
   - DOMAIN-SUFFIX,uplay.com
   - DOMAIN-SUFFIX,epicgames.com # Epic Games
+  - DOMAIN-SUFFIX,epicgames.dev
+  - DOMAIN-KEYWORD,prismray # Prismray
   - PROCESS-NAME-REGEX,(?i).*Rockstar.* # Rockstar
   - PROCESS-NAME-REGEX,(?i).*SocialClub.* # Rockstar Social Club
   - PROCESS-NAME-REGEX,(?i).*Epic.* # Epic Games
