@@ -110,6 +110,10 @@ payload:
   # Valorant
   - PROCESS-NAME,VALORANT-Win64-Shipping.exe # Valorant
 
+  # Escape From Tarkov
+  - PROCESS-NAME,EscapeFromTarkov.exe # Escape From Tarkov
+  - DOMAIN-SUFFIX,tarkov.com
+
   # BF6
   - PROCESS-NAME,bf6.exe # Battlefield 6
 
@@ -135,6 +139,7 @@ payload:
   - DOMAIN-SUFFIX,epicgames.com # Epic Games
   - DOMAIN-SUFFIX,epicgames.dev
   - DOMAIN-KEYWORD,prismray # Prismray
+  - PROCESS-NAME,BsgLauncher.exe # BattleState Games launcher
   - PROCESS-NAME-REGEX,(?i).*Rockstar.* # Rockstar
   - PROCESS-NAME-REGEX,(?i).*SocialClub.* # Rockstar Social Club
   - PROCESS-NAME-REGEX,(?i).*Epic.* # Epic Games
