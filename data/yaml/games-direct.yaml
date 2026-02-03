@@ -113,6 +113,22 @@ payload:
   # Escape From Tarkov
   - PROCESS-NAME,EscapeFromTarkov.exe # Escape From Tarkov
   - DOMAIN-SUFFIX,tarkov.com
+  - DOMAIN-SUFFIX,eft-project.com
+  - DOMAIN-SUFFIX,battlestategames.com
+  - DOMAIN-SUFFIX,cloudflare.com
+  - DOMAIN-SUFFIX,amazon.com
+  - DOMAIN,gw-pvp.eft.tarkov.com
+  - DOMAIN,gw-pve.eft.tarkov.com
+  - DOMAIN,gw.prod.arena.tarkov.com
+  - DOMAIN,wsn-01.escapefromtarkov.com
+  - DOMAIN,wsn-02.escapefromtarkov.com
+  - DOMAIN,wsn-03.escapefromtarkov.com
+  - DOMAIN,prod.escapefromtarkov.com
+  - DOMAIN,profile.tarkov.com
+  - DOMAIN,launcher.escapefromtarkov.com
+  - DOMAIN,status.escapefromtarkov.com
+  - DOMAIN,challenges.cloudflare.com
+  - DOMAIN,launcher-seq.eft-project.com
 
   # BF6
   - PROCESS-NAME,bf6.exe # Battlefield 6
