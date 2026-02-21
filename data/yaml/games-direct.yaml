@@ -132,6 +132,9 @@ payload:
   - AND,((NETWORK,TCP),(DST-PORT,17000-17100))
   - AND,((NETWORK,UDP),(DST-PORT,17000-17100))
 
+  # Baldur's Gate 3
+  - PROCESS-NAME,bg3.exe # Baldur's Gate 3
+
   # BF6
   - PROCESS-NAME,bf6.exe # Battlefield 6
 
