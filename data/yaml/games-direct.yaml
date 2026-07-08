@@ -120,6 +120,7 @@ payload:
   - DOMAIN,gw-pvp.eft.tarkov.com
   - DOMAIN,gw-pve.eft.tarkov.com
   - DOMAIN,gw.prod.arena.tarkov.com
+  - DOMAIN,gw-pvp.escapefromtarkov.ru
   - DOMAIN,wsn-01.escapefromtarkov.com
   - DOMAIN,wsn-02.escapefromtarkov.com
   - DOMAIN,wsn-03.escapefromtarkov.com
